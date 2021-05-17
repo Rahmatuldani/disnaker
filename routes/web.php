@@ -28,7 +28,14 @@ Route::middleware(['auth'])->group(function () {
         'user' => UserController::class,
     ]);
 
-    Route::match(['get', 'post'], '/admins/changePass/{id?}', [App\Http\Controllers\AdminController::class, 'changePassword'])->name('admin.cpass');
-    Route::post('/cPhoto/{id}', [App\Http\Controllers\UserController::class, 'ChangePhoto'])->name('cPhoto');
+    Route::prefix('admins')->group(function () {
+        Route::match(['get', 'put'], '/changePass/{id?}', [App\Http\Controllers\AdminController::class, 'changePassword'])->name('admin.cpass');
+        Route::post('/cPhoto/{id}', [App\Http\Controllers\AdminController::class, 'ChangePhoto'])->name('admin.cPhoto');
+    });
+
+    Route::prefix('users')->group(function () {
+        Route::match(['get', 'put'], '/changePass/{id?}', [App\Http\Controllers\UserController::class, 'changePassword'])->name('user.cpass');
+        Route::post('/cPhoto/{id}', [App\Http\Controllers\UserController::class, 'ChangePhoto'])->name('user.cPhoto');
+    });
 });
 

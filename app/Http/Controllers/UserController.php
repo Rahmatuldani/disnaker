@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -74,7 +77,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request['name'];
+        $user->address = $request['address'];
+        $user->phone = $request['phone'];
+        $user->save();
+
+        return redirect()->route('user.show', $id)->with('message', 'Edit Profile Successful!');
     }
 
     /**
@@ -101,6 +110,30 @@ class UserController extends Controller
 
         $user->photo = $fileName;
         $user->save();
-        return redirect()->route('user.show', $id);
+        return redirect()->route('user.show', $id)->with('message', 'Change Photo Successful!');
+    }
+
+    public function changePassword(Request $request, $id = NULL)
+    {
+        if ($id == NULL) {
+            return view('changePass');
+        }
+
+        $validated = $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => 'required|min:8|different:current_password',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        if (!$validated) {
+            return redirect()->route('user.cpass');
+        }
+
+        $user = User::find($id);
+        $user->password = Hash::make($request['confirm_password']);
+        $user->save();
+
+        Auth::logout();
+        return redirect()->route('login')->with('message', 'Change Password Successful!');
     }
 }

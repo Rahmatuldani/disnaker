@@ -136,7 +136,7 @@
                 @if (Auth::user()->photo == NULL)
                     <img class="img-profile rounded-circle" src="{{ asset('img/icons/user.png') }}" alt="">
                 @else
-                    <img class="img-profile rounded-circle" src="{{ asset('storage/images/'.Auth::user()->photo) }}" alt="">
+                    <img class="img-profile rounded-circle" src="{{ asset('images/'.Auth::user()->photo) }}" alt="">
                 @endif
             </a>
             <!-- Dropdown - User Information -->

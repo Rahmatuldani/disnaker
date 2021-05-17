@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <!-- Begin Page Content -->
@@ -13,7 +13,7 @@
                 <!-- Basic Card Example -->
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('admin.cpass', Auth::user()->id) }}" method="post">
+                        <form action="{{ route('user.cpass', Auth::user()->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="row m-3">
