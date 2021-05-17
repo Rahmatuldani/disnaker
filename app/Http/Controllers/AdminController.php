@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Office;
+use App\Models\Position;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
@@ -50,7 +52,11 @@ class AdminController extends Controller
     public function show($id)
     {
         $data = array(
-            'user' => User::find($id),
+            'user' => User::join('offices', 'offices.office_id', '=', 'users.office_id')
+                            ->join('towns', 'towns.town_id', '=', 'offices.town_id')
+                            ->join('positions', 'positions.position_id', '=', 'users.position_id')
+                            ->where('users.id', $id)
+                            ->first(),
         );
 
         return view('admin.profile', $data);
@@ -134,5 +140,19 @@ class AdminController extends Controller
         $user->photo = $fileName;
         $user->save();
         return redirect()->route('admin.show', $id)->with('message', 'Change Photo Successful!');
+    }
+
+    public function Users(Request $request, $add = false)
+    {
+        if (!$add) {
+            $data = array(
+                'user' => User::join('offices', 'offices.office_id', '=', 'users.office_id')
+                                ->join('positions', 'positions.position_id', '=', 'users.position_id')
+                                ->get(),
+                'office' => Office::all(),
+                'position' => Position::all(),
+            );
+            return view('admin.addUser', $data);
+        }
     }
 }

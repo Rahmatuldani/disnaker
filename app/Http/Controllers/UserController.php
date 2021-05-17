@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Office;
+use App\Models\Position;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
@@ -39,7 +41,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $office = Office::where('office_name', $request['office_id'])->first();
+        $position = Position::where('position_name', $request['position_id'])->first();
+
+        $user = new User;
+        $user->nip = $request['nip'];
+        $user->name = $request['nip'];
+        $user->password = Hash::make($request['nip']);
+        $user->photo = 'user.png';
+        $user->role = 'user';
+        $user->office_id = $office->office_id;
+        $user->position_id = $position->position_id;
+        $user->save();
+
+        return redirect()->route('admin.users')->with('message', 'Add User Successful!');
     }
 
     /**
@@ -94,7 +109,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo $id;
+        // $user = User::find($id);
+        // $user->delete();
+
+        // return redirect()->route('admin.users')->with('message', 'Delete User Successful!');
     }
 
     public function ChangePhoto(Request $request, $id)

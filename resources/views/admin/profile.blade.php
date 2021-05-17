@@ -42,6 +42,12 @@
                             </div>
                         </div>
                         <div class="row m-3">
+                            <label for="position" class="col-sm-3 col-form-label">Jabatan</label>
+                            <div class="col-sm ml-3">
+                                <p id="position" class="form-control m-0">{{ $user['position_name'] }}</p>
+                            </div>
+                        </div>
+                        <div class="row m-3">
                             <label for="address" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm ml-3">
                                 <textarea name="address" class="form-control m-0" id="address" cols="30" rows="3" disabled>{{ $user['address'] }}</textarea>
@@ -51,6 +57,18 @@
                             <label for="phone" class="col-sm-3 col-form-label">No Telp</label>
                             <div class="col-sm ml-3">
                                 <p id="phone" class="form-control m-0">{{ $user['phone'] }}</p>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <label for="office_name" class="col-sm-3 col-form-label">Kantor</label>
+                            <div class="col-sm ml-3">
+                                <p id="office_name" class="form-control m-0">{{ $user['office_name'] }}</p>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <label for="town_name" class="col-sm-3 col-form-label">Kabupaten/Kota</label>
+                            <div class="col-sm ml-3">
+                                <p id="town_name" class="form-control m-0">{{ $user['town_slug'].' '.$user['town_name'] }}</p>
                             </div>
                         </div>
                         <div class="row justify-content-end m-3">

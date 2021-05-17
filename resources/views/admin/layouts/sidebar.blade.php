@@ -20,7 +20,14 @@
     </li>
 
     <!-- Divider -->
-    {{-- <hr class="sidebar-divider"> --}}
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.users') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Users</span></a>
+    </li>
 
     <!-- Heading -->
     {{-- <div class="sidebar-heading">

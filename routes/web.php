@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admins')->group(function () {
         Route::match(['get', 'put'], '/changePass/{id?}', [App\Http\Controllers\AdminController::class, 'changePassword'])->name('admin.cpass');
         Route::post('/cPhoto/{id}', [App\Http\Controllers\AdminController::class, 'ChangePhoto'])->name('admin.cPhoto');
+        Route::match(['get', 'post'], 'user/{add?}', [App\Http\Controllers\AdminController::class, 'Users'])->name('admin.users');
     });
 
     Route::prefix('users')->group(function () {
