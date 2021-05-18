@@ -136,7 +136,7 @@
                 @if (Auth::user()->photo == NULL)
                     <img class="img-profile rounded-circle" src="{{ asset('img/icons/user.png') }}" alt="">
                 @else
-                    <img class="img-profile rounded-circle" src="{{ asset('storage/images/'.Auth::user()->photo) }}" alt="">
+                    <img class="img-profile rounded-circle" src="{{ asset('images/'.Auth::user()->photo) }}" alt="">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
@@ -146,7 +146,7 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ route('user.cpass') }}">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Change Password
                 </a>

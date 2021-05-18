@@ -22,8 +22,18 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('photo')->nullable();
             $table->string('role');
+            $table->integer('office_id');
+            $table->integer('position_id');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('office_id')->references('office_id')->on('offices')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('position_id')->references('position_id')->on('positions')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 
