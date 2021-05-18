@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IPK1;
+use App\Models\IPK1Name;
 use App\Models\Office;
 use App\Models\Position;
 use App\Models\User;
@@ -10,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class UserController extends Controller
 {
@@ -109,11 +112,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        echo $id;
-        // $user = User::find($id);
-        // $user->delete();
+        $user = User::find($id);
+        $user->delete();
 
-        // return redirect()->route('admin.users')->with('message', 'Delete User Successful!');
+        return redirect()->route('admin.users')->with('message', 'Delete User Successful!');
     }
 
     public function ChangePhoto(Request $request, $id)
@@ -154,5 +156,58 @@ class UserController extends Controller
 
         Auth::logout();
         return redirect()->route('login')->with('message', 'Change Password Successful!');
+    }
+
+    public function ipk1(Request $request, $action = null)
+    {
+        if ($action == null) {
+            if ($request['month'] == null) {
+                $request['month'] = date('Y-m');
+            }
+            // $time = substr($month, 5, 2);
+            $data = array(
+                'ipk' => IPK1::join('ipk1_names', 'ipk1_names.ipk1_name_id', '=', 'ipk1s.ipk1_name_id')
+                                ->where('ipk1_month', $request['month'])
+                                ->get(),
+                'month' => $request['month'],
+            );
+            return view('laporan.ipk1', $data);
+        } else if ($action == 'edit') {
+            $ipk = IPK1::find($request['ipk1_id']);
+
+            $ipk['15-19l'] = $request['15-19l'];
+            $ipk['15-19p'] = $request['15-19p'];
+            $ipk['20-29l'] = $request['20-29l'];
+            $ipk['20-29p'] = $request['20-29p'];
+            $ipk['30-44l'] = $request['30-44l'];
+            $ipk['30-44p'] = $request['30-44p'];
+            $ipk['45-54l'] = $request['45-54l'];
+            $ipk['45-54p'] = $request['45-54p'];
+            $ipk['55l'] = $request['55l'];
+            $ipk['55p'] = $request['55p'];
+            $ipk->save();
+
+            return redirect()->route('user.ipk1');
+        } else {
+            $each = IPK1Name::all();
+
+            foreach ($each as $e) {
+                $ipk = new IPK1;
+                $ipk['ipk1_name_id'] = $e['ipk1_name_id'];
+                $ipk['ipk1_month'] = $request['month'];
+                $ipk->save();
+            }
+            return redirect()->route('user.ipk1');
+        }
+    }
+
+    public function print(Request $request, $set = 'portrait')
+    {
+        $data = IPK1::all();
+
+        $pdf = PDF::loadView('print.ipk1', $data)->setPaper('a4', $set);
+
+        // download PDF file with download method
+        return $pdf->stream('Laporan_IPK_III/1_'.$request['month'].'.pdf');
     }
 }

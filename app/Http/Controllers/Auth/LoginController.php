@@ -31,6 +31,8 @@ class LoginController extends Controller
     {
         if (Auth::user()->role == 'admin') {
             return RouteServiceProvider::ADMIN;
+        } else if (Auth::user()->role == 'dinas') {
+            return RouteServiceProvider::DINAS;
         } else {
             return RouteServiceProvider::HOME;
         }

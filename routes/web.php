@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DinasController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'admin' => AdminController::class,
         'user' => UserController::class,
+        'dinas' => DinasController::class,
     ]);
 
     Route::prefix('admins')->group(function () {
@@ -37,6 +39,16 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('users')->group(function () {
         Route::match(['get', 'put'], '/changePass/{id?}', [App\Http\Controllers\UserController::class, 'changePassword'])->name('user.cpass');
         Route::post('/cPhoto/{id}', [App\Http\Controllers\UserController::class, 'ChangePhoto'])->name('user.cPhoto');
+        Route::match(['get', 'post'], '/ipk1/{action?}', [App\Http\Controllers\UserController::class, 'ipk1'])->name('user.ipk1');
+        Route::post('/print/{set?}', [App\Http\Controllers\UserController::class, 'print'])->name('user.print');
     });
+
+    Route::prefix('disnaker')->group(function () {
+
+    });
+});
+
+Route::get('test', function () {
+    return view('test');
 });
 

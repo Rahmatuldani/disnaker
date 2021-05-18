@@ -142,17 +142,25 @@ class AdminController extends Controller
         return redirect()->route('admin.show', $id)->with('message', 'Change Photo Successful!');
     }
 
-    public function Users(Request $request, $add = false)
+    public function Users(Request $request)
     {
-        if (!$add) {
+        $data = array(
+            'user' => User::join('offices', 'offices.office_id', '=', 'users.office_id')
+                            ->join('positions', 'positions.position_id', '=', 'users.position_id')
+                            ->get(),
+            'office' => Office::all(),
+            'position' => Position::all(),
+        );
+        return view('admin.addUser', $data);
+    }
+
+    public function Position(Request $request, $type = false)
+    {
+        if (!$type) {
             $data = array(
-                'user' => User::join('offices', 'offices.office_id', '=', 'users.office_id')
-                                ->join('positions', 'positions.position_id', '=', 'users.position_id')
-                                ->get(),
-                'office' => Office::all(),
                 'position' => Position::all(),
             );
-            return view('admin.addUser', $data);
+            return view('admin.position', $data);
         }
     }
 }

@@ -63,6 +63,7 @@
                                     <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser-{{$u['id']}}"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
+
                             <!-- Delete Modal-->
                             <div class="modal fade" id="deleteUser-{{$u['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -75,12 +76,11 @@
                                         </div>
                                         <div class="modal-body">Apakah yakin ingin menghapus akun {{$u['name']}}?</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                            <a class="btn btn-danger" href="{{ route('user.destroy', $u['id']) }}" onclick="event.preventDefault();document.getElementById('delete-form').submit();">Delete</a>
-
-                                            <form id="delete-form" action="{{ route('user.destroy', $u['id']) }}" method="POST" class="d-none">
+                                            <form action="{{ route('user.destroy', $u['id']) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </div>
                                     </div>

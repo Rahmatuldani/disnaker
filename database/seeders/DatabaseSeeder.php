@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             OfficeSeeder::class,
             PositionSeeder::class,
             UserSeeder::class,
+            IPK1Seeder::class,
         ]);
     }
 }

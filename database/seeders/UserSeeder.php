@@ -26,10 +26,20 @@ class UserSeeder extends Seeder
         ]));
 
         DB::table('users')->insert(([
-            'nip' => 123180027,
+            'nip' => 123180001,
             'name' => 'Rahmatul Ramadhani',
             'password' => Hash::make('adminpass'),
-            'role' => 'user',
+            'role' => 'dinas',
+            'office_id' => 1,
+            'position_id' => 2,
+            'photo' => 'user.png',
+        ]));
+
+        DB::table('users')->insert(([
+            'nip' => 123180002,
+            'name' => 'Ahmad Ridho',
+            'password' => Hash::make('adminpass'),
+            'role' => 'Sekolah',
             'office_id' => 1,
             'position_id' => 2,
             'photo' => 'user.png',
