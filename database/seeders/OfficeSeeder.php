@@ -17,6 +17,7 @@ class OfficeSeeder extends Seeder
         DB::table('offices')->insert([
             'office_name' => 'Disnakertrans Agam',
             'office_address' => 'Jl. Agam',
+            'office_phone' => '08123456789',
             'town_id' => 1,
         ]);
     }

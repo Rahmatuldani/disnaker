@@ -29,6 +29,34 @@
             <span>Users</span></a>
     </li>
 
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.office') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Office</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.position') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Position</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.education') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Education</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.jobPosition') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Job Position</span></a>
+    </li>
+
     <!-- Heading -->
     {{-- <div class="sidebar-heading">
         Interface

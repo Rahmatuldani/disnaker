@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="row m-3">
-                            <label for="position_id" class="col-sm-3 col-form-label">Jabatan</label>
+                            <label for="position_id" class="col-sm-3 col-form-label">Position</label>
                             <div class="col-sm ml-3">
                                 <input list="positionList" name="position_id" id="position_id" class="form-control" required>
                                 <datalist id="positionList">
@@ -125,13 +125,24 @@
                             </div>
                         </div>
                         <div class="row m-3">
-                            <label for="office_id" class="col-sm-3 col-form-label">Kantor</label>
+                            <label for="office_id" class="col-sm-3 col-form-label">Office</label>
                             <div class="col-sm ml-3">
                                 <input list="officeList" name="office_id" id="office_id" class="form-control" required>
                                 <datalist id="officeList">
                                     @foreach ($office as $o)
                                         <option value="{{ $o['office_name'] }}"></option>
                                     @endforeach
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <label for="role" class="col-sm-3 col-form-label">Role</label>
+                            <div class="col-sm ml-3">
+                                <input list="roleList" name="role" id="role" class="form-control" required>
+                                <datalist id="roleList">
+                                    <option value="admin"></option>
+                                    <option value="dinas"></option>
+                                    <option value="sekolah"></option>
                                 </datalist>
                             </div>
                         </div>

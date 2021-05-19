@@ -38,11 +38,11 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">IPK</h6>
                 <a class="collapse-item" href="{{ route('user.ipk1') }}">III/1</a>
-                <a class="collapse-item" href="#">III/2</a>
-                <a class="collapse-item" href="#">III/3</a>
-                <a class="collapse-item" href="#">III/4</a>
-                <a class="collapse-item" href="#">III/5</a>
-                <a class="collapse-item" href="#">III/6</a>
+                <a class="collapse-item" href="{{ route('user.ipk2') }}">III/2</a>
+                <a class="collapse-item" href="{{ route('user.ipk3') }}">III/3</a>
+                <a class="collapse-item" href="{{ route('user.ipk4') }}">III/4</a>
+                <a class="collapse-item" href="{{ route('user.ipk5') }}">III/5</a>
+                <a class="collapse-item" href="{{ route('user.ipk6') }}">III/6</a>
             </div>
         </div>
     </li>
