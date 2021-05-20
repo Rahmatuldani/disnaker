@@ -2,20 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BusinessField;
+use App\Models\Education;
 use App\Models\IPK1;
 use App\Models\IPK1Name;
+use App\Models\IPK2;
+use App\Models\IPK3;
+use App\Models\IPK4;
+use App\Models\IPK5;
+use App\Models\IPK6;
+use App\Models\JobPosition;
 use App\Models\Office;
 use App\Models\Position;
+use App\Models\Town;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class UserController extends Controller
 {
+    public function check($string)
+    {
+        while (strlen($string) < 4) {
+            $string = '0'.$string;
+        }
+        return $string;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -52,9 +68,9 @@ class UserController extends Controller
         $user->name = $request['nip'];
         $user->password = Hash::make($request['nip']);
         $user->photo = 'user.png';
-        $user->role = 'user';
-        $user->office_id = $office->office_id;
-        $user->position_id = $position->position_id;
+        $user->role = $request['role'];
+        $user->office_id = $office['office_id'];
+        $user->position_id = $position['position_id'];
         $user->save();
 
         return redirect()->route('admin.users')->with('message', 'Add User Successful!');
@@ -158,16 +174,28 @@ class UserController extends Controller
         return redirect()->route('login')->with('message', 'Change Password Successful!');
     }
 
+    public function print(Request $request, $set = 'portrait')
+    {
+        $data = IPK1::all();
+
+        $pdf = PDF::loadView('print.ipk1', $data)->setPaper('a4', $set);
+
+        // download PDF file with download method
+        return $pdf->stream('Laporan_IPK_III/1_'.$request['month'].'.pdf');
+    }
+
     public function ipk1(Request $request, $action = null)
     {
+        $office = Office::find(Auth::user()->office_id);
+        $town = Town::find($office['town_id']);
         if ($action == null) {
             if ($request['month'] == null) {
                 $request['month'] = date('Y-m');
             }
-            // $time = substr($month, 5, 2);
             $data = array(
                 'ipk' => IPK1::join('ipk1_names', 'ipk1_names.ipk1_name_id', '=', 'ipk1s.ipk1_name_id')
                                 ->where('ipk1_month', $request['month'])
+                                ->where('town_id', $town['town_id'])
                                 ->get(),
                 'month' => $request['month'],
             );
@@ -189,25 +217,265 @@ class UserController extends Controller
 
             return redirect()->route('user.ipk1');
         } else {
-            $each = IPK1Name::all();
+            $check = IPK1::where('ipk1_month', $request['month'])->first();
 
-            foreach ($each as $e) {
-                $ipk = new IPK1;
-                $ipk['ipk1_name_id'] = $e['ipk1_name_id'];
-                $ipk['ipk1_month'] = $request['month'];
-                $ipk->save();
+            if ($check == null) {
+                $each = IPK1Name::all();
+                foreach ($each as $e) {
+                    $ipk = new IPK1;
+                    $ipk['ipk1_name_id'] = $e['ipk1_name_id'];
+                    $ipk['ipk1_month'] = $request['month'];
+                    $ipk['town_id'] = $town['town_id'];
+                    $ipk->save();
+                }
             }
+
             return redirect()->route('user.ipk1');
         }
     }
 
-    public function print(Request $request, $set = 'portrait')
+    public function ipk2(Request $request, $action = null)
     {
-        $data = IPK1::all();
+        $office = Office::find(Auth::user()->office_id);
+        $town = Town::find($office['town_id']);
+        if ($action == null) {
+            if ($request['month'] == null) {
+                $request['month'] = date('Y-m');
+            }
+            $data = array(
+                'ipk' => IPK2::join('educations', 'educations.education_id', '=', 'ipk2s.education_id')
+                                ->where('ipk2_month', $request['month'])
+                                ->where('town_id', $town['town_id'])
+                                ->get(),
+                'month' => $request['month'],
+            );
+            return view('laporan.ipk2', $data);
+        } else if ($action == 'edit') {
+            $ipk = IPK2::find($request['ipk2_id']);
+            $ipk->rest_last_month_l = $request['rest_last_month_l'];
+            $ipk->rest_last_month_p = $request['rest_last_month_p'];
+            $ipk->registered_this_month_l = $request['registered_this_month_l'];
+            $ipk->registered_this_month_p = $request['registered_this_month_p'];
+            $ipk->placement_this_month_l = $request['placement_this_month_l'];
+            $ipk->placement_this_month_p = $request['placement_this_month_p'];
+            $ipk->deleted_this_month_l = $request['deleted_this_month_l'];
+            $ipk->deleted_this_month_p = $request['deleted_this_month_p'];
+            $ipk->rest_this_month_l = $request['rest_this_month_l'];
+            $ipk->rest_this_month_p = $request['rest_this_month_p'];
+            $ipk->save();
 
-        $pdf = PDF::loadView('print.ipk1', $data)->setPaper('a4', $set);
+            return redirect()->route('user.ipk2');
+        } else {
+            $check = IPK2::where('ipk2_month', $request['month'])->first();
 
-        // download PDF file with download method
-        return $pdf->stream('Laporan_IPK_III/1_'.$request['month'].'.pdf');
+            if ($check == null) {
+                $each = Education::all();
+                foreach ($each as $e) {
+                    $ipk = new IPK2;
+                    $ipk['education_id'] = $e['education_id'];
+                    $ipk['ipk2_month'] = $request['month'];
+                    $ipk['town_id'] = $town['town_id'];
+                    $ipk->save();
+                }
+            }
+
+            return redirect()->route('user.ipk2');
+        }
+    }
+
+    public function ipk3(Request $request, $action = null)
+    {
+        $office = Office::find(Auth::user()->office_id);
+        $town = Town::find($office['town_id']);
+        if ($action == null) {
+            if ($request['month'] == null) {
+                $request['month'] = date('Y-m');
+            }
+            $data = array(
+                'ipk' => IPK3::join('job_positions', 'job_positions.job_position_id', '=', 'ipk3s.job_position_id')
+                                ->where('ipk3_month', $request['month'])
+                                ->where('town_id', $town['town_id'])
+                                ->get(),
+                'month' => $request['month'],
+            );
+            return view('laporan.ipk3', $data);
+        } else if ($action == 'edit') {
+            $ipk = IPK3::find($request['ipk3_id']);
+            $ipk->rest_last_month_l = $request['rest_last_month_l'];
+            $ipk->rest_last_month_p = $request['rest_last_month_p'];
+            $ipk->registered_this_month_l = $request['registered_this_month_l'];
+            $ipk->registered_this_month_p = $request['registered_this_month_p'];
+            $ipk->placement_this_month_l = $request['placement_this_month_l'];
+            $ipk->placement_this_month_p = $request['placement_this_month_p'];
+            $ipk->deleted_this_month_l = $request['deleted_this_month_l'];
+            $ipk->deleted_this_month_p = $request['deleted_this_month_p'];
+            $ipk->rest_this_month_l = $request['rest_this_month_l'];
+            $ipk->rest_this_month_p = $request['rest_this_month_p'];
+            $ipk->save();
+
+            return redirect()->route('user.ipk3');
+        } else {
+            $check = IPK3::where('ipk3_month', $request['month'])->first();
+
+            if ($check == null) {
+                $each = JobPosition::all();
+                foreach ($each as $e) {
+                    $ipk = new IPK3;
+                    $ipk['job_position_id'] = $e['job_position_id'];
+                    $ipk['ipk3_month'] = $request['month'];
+                    $ipk['town_id'] = $town['town_id'];
+                    $ipk->save();
+                }
+            }
+
+            return redirect()->route('user.ipk3');
+        }
+    }
+
+    public function ipk4(Request $request, $action = null)
+    {
+        $office = Office::find(Auth::user()->office_id);
+        $town = Town::find($office['town_id']);
+        if ($action == null) {
+            if ($request['month'] == null) {
+                $request['month'] = date('Y-m');
+            }
+            $data = array(
+                'ipk' => IPK4::join('educations', 'educations.education_id', '=', 'ipk4s.education_id')
+                                ->where('ipk4_month', $request['month'])
+                                ->where('town_id', $town['town_id'])
+                                ->get(),
+                'month' => $request['month'],
+            );
+            return view('laporan.ipk4', $data);
+        } else if ($action == 'edit') {
+            $ipk = IPK4::find($request['ipk4_id']);
+            $ipk->rest_last_month_l = $request['rest_last_month_l'];
+            $ipk->rest_last_month_p = $request['rest_last_month_p'];
+            $ipk->registered_this_month_l = $request['registered_this_month_l'];
+            $ipk->registered_this_month_p = $request['registered_this_month_p'];
+            $ipk->placement_this_month_l = $request['placement_this_month_l'];
+            $ipk->placement_this_month_p = $request['placement_this_month_p'];
+            $ipk->deleted_this_month_l = $request['deleted_this_month_l'];
+            $ipk->deleted_this_month_p = $request['deleted_this_month_p'];
+            $ipk->rest_this_month_l = $request['rest_this_month_l'];
+            $ipk->rest_this_month_p = $request['rest_this_month_p'];
+            $ipk->save();
+
+            return redirect()->route('user.ipk4');
+        } else {
+            $check = IPK4::where('ipk4_month', $request['month'])->first();
+
+            if ($check == null) {
+                $each = Education::all();
+                foreach ($each as $e) {
+                    $ipk = new IPK4;
+                    $ipk['education_id'] = $e['education_id'];
+                    $ipk['ipk4_month'] = $request['month'];
+                    $ipk['town_id'] = $town['town_id'];
+                    $ipk->save();
+                }
+            }
+
+            return redirect()->route('user.ipk4');
+        }
+    }
+
+    public function ipk5(Request $request, $action = null)
+    {
+        $office = Office::find(Auth::user()->office_id);
+        $town = Town::find($office['town_id']);
+        if ($action == null) {
+            if ($request['month'] == null) {
+                $request['month'] = date('Y-m');
+            }
+            $data = array(
+                'ipk' => IPK5::join('job_positions', 'job_positions.job_position_id', '=', 'ipk5s.job_position_id')
+                                ->where('ipk5_month', $request['month'])
+                                ->where('town_id', $town['town_id'])
+                                ->get(),
+                'month' => $request['month'],
+            );
+            return view('laporan.ipk5', $data);
+        } else if ($action == 'edit') {
+            $ipk = IPK5::find($request['ipk5_id']);
+            $ipk->rest_last_month_l = $request['rest_last_month_l'];
+            $ipk->rest_last_month_p = $request['rest_last_month_p'];
+            $ipk->registered_this_month_l = $request['registered_this_month_l'];
+            $ipk->registered_this_month_p = $request['registered_this_month_p'];
+            $ipk->placement_this_month_l = $request['placement_this_month_l'];
+            $ipk->placement_this_month_p = $request['placement_this_month_p'];
+            $ipk->deleted_this_month_l = $request['deleted_this_month_l'];
+            $ipk->deleted_this_month_p = $request['deleted_this_month_p'];
+            $ipk->rest_this_month_l = $request['rest_this_month_l'];
+            $ipk->rest_this_month_p = $request['rest_this_month_p'];
+            $ipk->save();
+
+            return redirect()->route('user.ipk5');
+        } else {
+            $check = IPK5::where('ipk5_month', $request['month'])->first();
+
+            if ($check == null) {
+                $each = JobPosition::all();
+                foreach ($each as $e) {
+                    $ipk = new IPK5;
+                    $ipk['job_position_id'] = $e['job_position_id'];
+                    $ipk['ipk5_month'] = $request['month'];
+                    $ipk['town_id'] = $town['town_id'];
+                    $ipk->save();
+                }
+            }
+
+            return redirect()->route('user.ipk5');
+        }
+    }
+
+    public function ipk6(Request $request, $action = null)
+    {
+        $office = Office::find(Auth::user()->office_id);
+        $town = Town::find($office['town_id']);
+        if ($action == null) {
+            if ($request['month'] == null) {
+                $request['month'] = date('Y-m');
+            }
+            $data = array(
+                'ipk' => IPK6::join('business_fields', 'business_fields.business_field_id', '=', 'ipk6s.business_field_id')
+                                ->where('ipk6_month', $request['month'])
+                                ->where('town_id', $town['town_id'])
+                                ->get(),
+                'month' => $request['month'],
+            );
+            return view('laporan.ipk6', $data);
+        } else if ($action == 'edit') {
+            $ipk = IPK6::find($request['ipk6_id']);
+            $ipk->rest_last_month_l = $request['rest_last_month_l'];
+            $ipk->rest_last_month_p = $request['rest_last_month_p'];
+            $ipk->registered_this_month_l = $request['registered_this_month_l'];
+            $ipk->registered_this_month_p = $request['registered_this_month_p'];
+            $ipk->placement_this_month_l = $request['placement_this_month_l'];
+            $ipk->placement_this_month_p = $request['placement_this_month_p'];
+            $ipk->deleted_this_month_l = $request['deleted_this_month_l'];
+            $ipk->deleted_this_month_p = $request['deleted_this_month_p'];
+            $ipk->rest_this_month_l = $request['rest_this_month_l'];
+            $ipk->rest_this_month_p = $request['rest_this_month_p'];
+            $ipk->save();
+
+            return redirect()->route('user.ipk6');
+        } else {
+            $check = IPK6::where('ipk6_month', $request['month'])->first();
+
+            if ($check == null) {
+                $each = BusinessField::all();
+                foreach ($each as $e) {
+                    $ipk = new IPK6;
+                    $ipk['business_field_id'] = $this->check($e['business_field_id']);
+                    $ipk['ipk6_month'] = $request['month'];
+                    $ipk['town_id'] = $town['town_id'];
+                    $ipk->save();
+                }
+            }
+
+            return redirect()->route('user.ipk6');
+        }
     }
 }

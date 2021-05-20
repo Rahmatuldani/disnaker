@@ -28,12 +28,12 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('office_id')->references('office_id')->on('offices')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
 
             $table->foreign('position_id')->references('position_id')->on('positions')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
         });
     }
 

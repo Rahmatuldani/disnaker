@@ -26,12 +26,16 @@ class CreateIpk1sTable extends Migration
             $table->integer('45-54p')->default(0);
             $table->integer('55l')->default(0);
             $table->integer('55p')->default(0);
-            $table->string('ipk1_month', 8)->nullable();
+            $table->string('ipk1_month', 8);
+            $table->integer('town_id');
             $table->timestamps();
 
             $table->foreign('ipk1_name_id')->references('ipk1_name_id')->on('ipk1_names')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
+            $table->foreign('town_id')->references('town_id')->on('towns')
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
         });
     }
 

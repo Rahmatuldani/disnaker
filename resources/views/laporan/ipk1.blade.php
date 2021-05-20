@@ -8,10 +8,10 @@
     <h1 class="h3 mb-4 text-gray-800">IPK III/1</h1>
 
     <a href="#" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addIpk">Tambah laporan baru</a>
-    <a href="#" class="btn btn-info mb-4" data-toggle="modal" data-target="#printIpk">Cetak Laporan</a>
+    <a href="#" class="btn btn-info mb-4">Cetak Laporan</a>
 
     <!-- Print Modal-->
-    <div class="modal fade" id="printIpk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="printIpk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <form action="{{ route('user.print', 'landscape') }}" method="POST">
@@ -32,7 +32,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="row">
@@ -43,7 +43,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Laporan Per Bulan</h6>
                 </div>
                 <div class="card-body">
-                    <form class="row g-3" action="{{ route('user.ipk1') }}" method="POST">
+                    <form class="row g-3" action="#" method="POST">
                         @csrf
                         <label for="month" class="col-sm-3 col-form-label">Bulan</label>
                         <div class="col-auto">
@@ -130,7 +130,7 @@
                             <td>{{ $u['15-19l']+$u['20-29l']+$u['30-44l']+$u['45-54l']+$u['55l']+$u['15-19p']+$u['20-29p']+$u['30-44p']+$u['45-54p']+$u['55p'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#editIpk-{{$u['ipk1_id']}}"><i class="fas fa-edit"></i></a>
-                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                {{-- <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a> --}}
                             </td>
                         </tr>
 

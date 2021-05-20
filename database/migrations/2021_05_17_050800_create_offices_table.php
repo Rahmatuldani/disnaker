@@ -17,12 +17,13 @@ class CreateOfficesTable extends Migration
             $table->integer('office_id')->autoIncrement();
             $table->string('office_name');
             $table->string('office_address');
+            $table->string('office_phone', 20);
             $table->integer('town_id');
             $table->timestamps();
 
             $table->foreign('town_id')->references('town_id')->on('towns')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
         });
     }
 
