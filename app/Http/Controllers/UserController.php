@@ -20,7 +20,6 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class UserController extends Controller
@@ -32,7 +31,7 @@ class UserController extends Controller
         }
         return $string;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -70,8 +69,8 @@ class UserController extends Controller
         $user->password = Hash::make($request['nip']);
         $user->photo = 'user.png';
         $user->role = $request['role'];
-        $user->office_id = $office->office_id;
-        $user->position_id = $position->position_id;
+        $user->office_id = $office['office_id'];
+        $user->position_id = $position['position_id'];
         $user->save();
 
         return redirect()->route('admin.users')->with('message', 'Add User Successful!');
@@ -469,7 +468,7 @@ class UserController extends Controller
                 $each = BusinessField::all();
                 foreach ($each as $e) {
                     $ipk = new IPK6;
-                    $ipk['business_field_id'] = $e['business_field_id'];
+                    $ipk['business_field_id'] = $this->check($e['business_field_id']);
                     $ipk['ipk6_month'] = $request['month'];
                     $ipk['town_id'] = $town['town_id'];
                     $ipk->save();

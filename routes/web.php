@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
         Route::match(['get', 'post'], 'position/{action?}', [App\Http\Controllers\AdminController::class, 'Position'])->name('admin.position');
         Route::match(['get', 'post'], 'education/{action?}', [App\Http\Controllers\AdminController::class, 'education'])->name('admin.education');
         Route::match(['get', 'post'], 'jobPosition/{action?}', [App\Http\Controllers\AdminController::class, 'jobPosition'])->name('admin.jobPosition');
+        Route::match(['get', 'post'], 'businessField/{action?}', [App\Http\Controllers\AdminController::class, 'businessField'])->name('admin.businessField');
     });
 
     Route::prefix('users')->group(function () {

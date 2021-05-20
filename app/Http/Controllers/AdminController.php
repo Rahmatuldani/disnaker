@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BusinessField;
 use App\Models\Education;
 use App\Models\JobPosition;
 use App\Models\Office;
@@ -25,7 +26,7 @@ class AdminController extends Controller
         }
         return $string;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -317,4 +318,25 @@ class AdminController extends Controller
         }
     }
 
+    public function businessField(Request $request, $action = null)
+    {
+        if ($action == null) {
+            $data = array(
+                'business' => BusinessField::all(),
+            );
+            return view('admin.businessField', $data);
+        } else if ($action == 'add') {
+            $job = new BusinessField;
+            $job->business_field_id = $request['business_field_id'];
+            $job->business_field_name = Str::upper($request['business_field_name']);
+            $job->save();
+
+            return redirect()->route('admin.businessField')->with('message', 'Add Business Field Successful!');
+        } else if ($action == 'delete') {
+            $job = BusinessField::find($this->check($request['business_field_id']));
+            $job->delete();
+
+            return redirect()->route('admin.businessField')->with('message', 'Delete Business Field Successful!');
+        }
+    }
 }
