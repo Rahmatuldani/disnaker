@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\IPK1Export;
 use App\Models\BusinessField;
 use App\Models\Education;
 use App\Models\JobPosition;
 use App\Models\Office;
-use App\Models\Position;
 use App\Models\Town;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use PDOException;
+use Excel;
 
 class AdminController extends Controller
 {
@@ -69,7 +71,6 @@ class AdminController extends Controller
         $data = array(
             'user' => User::join('offices', 'offices.office_id', '=', 'users.office_id')
                             ->join('towns', 'towns.town_id', '=', 'offices.town_id')
-                            ->join('positions', 'positions.position_id', '=', 'users.position_id')
                             ->where('users.id', $id)
                             ->first(),
         );
@@ -161,37 +162,10 @@ class AdminController extends Controller
     {
         $data = array(
             'user' => User::join('offices', 'offices.office_id', '=', 'users.office_id')
-                            ->join('positions', 'positions.position_id', '=', 'users.position_id')
                             ->get(),
             'office' => Office::all(),
-            'position' => Position::all(),
         );
         return view('admin.addUser', $data);
-    }
-
-    public function Position(Request $request, $action = null)
-    {
-        if ($action == null) {
-            $data = array(
-                'position' => Position::all(),
-            );
-            return view('admin.position', $data);
-        } else if ($action == 'add') {
-            $position = new Position;
-            $position->position_name = $request['position_name'];
-            $position->save();
-
-            return redirect()->route('admin.position')->with('message', 'Add Position Successful!');
-        } else if ($action == 'delete') {
-            $position = Position::find($request['position_id']);
-            try {
-                $position->delete();
-            } catch (\PDOException $e) {
-                return redirect()->route('admin.position')->with('message', "Cannot delete this position!");
-            }
-
-            return redirect()->route('admin.position')->with('message', 'Delete Position Successful!');
-        }
     }
 
     public function Office(Request $request, $action = null)
@@ -241,25 +215,6 @@ class AdminController extends Controller
         foreach ($town as $t ) {
             array_push($label, $t['town_slug'].' '.$t['town_name']);
             array_push($data, User::join('offices', 'offices.office_id', '=', 'users.office_id')->where('town_id', $t['town_id'])->count());
-        }
-
-        $array = array(
-            'label' => $label,
-            'count' => $data,
-            'max' => User::all()->count(),
-        );
-        return $array;
-    }
-
-    public function userPosition()
-    {
-        $label = [];
-        $data = [];
-
-        $position = Position::all();
-        foreach ($position as $t ) {
-            array_push($label, $t['position_name']);
-            array_push($data, User::join('positions', 'positions.position_id', '=', 'users.position_id')->where('users.position_id', $t['position_id'])->count());
         }
 
         $array = array(
@@ -338,5 +293,10 @@ class AdminController extends Controller
 
             return redirect()->route('admin.businessField')->with('message', 'Delete Business Field Successful!');
         }
+    }
+
+    public function test()
+    {
+        return Excel::download(new IPK1Export(2), 'ipk.xlsx');
     }
 }

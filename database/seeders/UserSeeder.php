@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('adminpass'),
             'role' => 'admin',
             'office_id' => 1,
-            'position_id' => 1,
             'photo' => 'user.png',
         ]));
 
@@ -33,7 +32,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('adminpass'),
             'role' => 'provinsi',
             'office_id' => 1,
-            'position_id' => 2,
             'photo' => 'user.png',
         ]));
 
@@ -44,7 +42,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('adminpass'),
             'role' => 'kabupaten/kota',
             'office_id' => 1,
-            'position_id' => 2,
             'photo' => 'user.png',
         ]));
     }

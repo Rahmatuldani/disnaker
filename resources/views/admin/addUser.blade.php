@@ -29,7 +29,6 @@
                             <th>Name</th>
                             <th>Address</th>
                             <th>Phone</th>
-                            <th>Position</th>
                             <th>Office</th>
                             <th>Action</th>
                         </tr>
@@ -41,7 +40,6 @@
                             <th>Name</th>
                             <th>Address</th>
                             <th>Phone</th>
-                            <th>Position</th>
                             <th>Office</th>
                             <th>Action</th>
                         </tr>
@@ -59,7 +57,6 @@
                                 <td>{{ $u['name'] }}</td>
                                 <td>{{ $u['address'] }}</td>
                                 <td>{{ $u['phone'] }}</td>
-                                <td>{{ $u['position_name'] }}</td>
                                 <td>{{ $u['office_name'] }}</td>
                                 <td>
                                     <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
@@ -114,17 +111,6 @@
                             <label for="username" class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm ml-3">
                                 <input type="text" name="username" id="username" class="form-control m-0" required>
-                            </div>
-                        </div>
-                        <div class="row m-3">
-                            <label for="position_id" class="col-sm-3 col-form-label">Position</label>
-                            <div class="col-sm ml-3">
-                                <input list="positionList" name="position_id" id="position_id" class="form-control" required>
-                                <datalist id="positionList">
-                                    @foreach ($position as $o)
-                                        <option value="{{ $o['position_name'] }}"></option>
-                                    @endforeach
-                                </datalist>
                             </div>
                         </div>
                         <div class="row m-3">

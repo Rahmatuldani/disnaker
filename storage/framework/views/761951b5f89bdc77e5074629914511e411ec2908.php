@@ -28,7 +28,6 @@
                             <th>Name</th>
                             <th>Address</th>
                             <th>Phone</th>
-                            <th>Position</th>
                             <th>Office</th>
                             <th>Action</th>
                         </tr>
@@ -40,7 +39,6 @@
                             <th>Name</th>
                             <th>Address</th>
                             <th>Phone</th>
-                            <th>Position</th>
                             <th>Office</th>
                             <th>Action</th>
                         </tr>
@@ -59,7 +57,6 @@
                                 <td><?php echo e($u['name']); ?></td>
                                 <td><?php echo e($u['address']); ?></td>
                                 <td><?php echo e($u['phone']); ?></td>
-                                <td><?php echo e($u['position_name']); ?></td>
                                 <td><?php echo e($u['office_name']); ?></td>
                                 <td>
                                     <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
@@ -114,17 +111,6 @@
                             <label for="username" class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm ml-3">
                                 <input type="text" name="username" id="username" class="form-control m-0" required>
-                            </div>
-                        </div>
-                        <div class="row m-3">
-                            <label for="position_id" class="col-sm-3 col-form-label">Position</label>
-                            <div class="col-sm ml-3">
-                                <input list="positionList" name="position_id" id="position_id" class="form-control" required>
-                                <datalist id="positionList">
-                                    <?php $__currentLoopData = $position; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $o): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($o['position_name']); ?>"></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </datalist>
                             </div>
                         </div>
                         <div class="row m-3">

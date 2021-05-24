@@ -16,5 +16,4 @@
     <script src="<?php echo e(asset('js/demo/chart-bar-demo.js')); ?>"></script>
 <?php $__env->stopPush(); ?>
 
-
 <?php echo $__env->make('dinas.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\disnaker\resources\views/dinas/home.blade.php ENDPATH**/ ?>

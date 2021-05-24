@@ -10,17 +10,18 @@
     @if (Auth::user()->role == 'provinsi')
         <a href="#" class="btn btn-info mb-4">Cetak Laporan</a>
     @else
-        <a href="#" class="btn btn-success mb-4">Import Laporan</a>
+        {{-- <a href="#" class="btn btn-success mb-4">Import Laporan</a> --}}
         <a href="#" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addIpk">Tambah laporan baru</a>
-        <a href="#" class="btn btn-info mb-4">Cetak Laporan</a>
+        <a href="#" class="btn btn-info mb-4" data-toggle="modal" data-target="#printIpk">Cetak Laporan</a>
     @endif
 
     <!-- Print Modal-->
-    {{-- <div class="modal fade" id="printIpk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="printIpk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form action="{{ route('user.print', 'landscape') }}" method="POST">
+                <form action="{{ route('user.print') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="type" value="ipk1">
                     <div class="modal-body m-2">
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
@@ -29,15 +30,25 @@
                             <label for="month" class="col-sm-4 col-form-label">Bulan</label>
                             <input type="month" class="form-control col-sm-6 m-0" name="month" id="month" required>
                         </div>
+                        <div class="row justify-content-around m-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jenisCetak" id="excel" value="excel" checked>
+                                <label class="form-check-label" for="pencaker">Excel</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jenisCetak" id="pdf" value="pdf">
+                                <label class="form-check-label" for="perusahaan">PDF</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success">Tambah</button>
+                        <button type="submit" class="btn btn-success">Cetak</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
 
 
     <div class="row">

@@ -41,12 +41,6 @@
                             </div>
                         </div>
                         <div class="row m-3">
-                            <label for="position" class="col-sm-3 col-form-label">Jabatan</label>
-                            <div class="col-sm ml-3">
-                                <p id="position" class="form-control m-0"><?php echo e($user['position_name']); ?></p>
-                            </div>
-                        </div>
-                        <div class="row m-3">
                             <label for="address" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm ml-3">
                                 <textarea name="address" class="form-control m-0" id="address" cols="30" rows="3" disabled><?php echo e($user['address']); ?></textarea>

@@ -19,50 +19,18 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Users
-    </div>
-
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.users') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dinas</span></a>
+            <span>User</span></a>
     </li>
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>BKK</span></a>
-    </li>
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Perusahaan</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.office') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Office</span></a>
-    </li>
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.position') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Position</span></a>
     </li>
 
     <!-- Nav Item - Dashboard -->

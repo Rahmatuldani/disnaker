@@ -18,7 +18,7 @@ class OfficeSeeder extends Seeder
             'office_name' => 'Disnakertrans Agam',
             'office_address' => 'Jl. Agam',
             'office_phone' => '08123456789',
-            'town_id' => 1,
+            'town_id' => 2,
         ]);
     }
 }

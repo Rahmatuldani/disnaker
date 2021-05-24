@@ -24,15 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('photo')->nullable();
             $table->string('role');
             $table->integer('office_id');
-            $table->integer('position_id');
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('office_id')->references('office_id')->on('offices')
-            ->onUpdate('restrict')
-            ->onDelete('restrict');
-
-            $table->foreign('position_id')->references('position_id')->on('positions')
             ->onUpdate('restrict')
             ->onDelete('restrict');
         });

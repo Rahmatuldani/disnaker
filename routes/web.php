@@ -34,11 +34,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/cPhoto/{id}', [App\Http\Controllers\AdminController::class, 'ChangePhoto'])->name('admin.cPhoto');
         Route::match(['get', 'post'], 'user/{add?}', [App\Http\Controllers\AdminController::class, 'Users'])->name('admin.users');
         Route::match(['get', 'post'], 'office/{action?}', [App\Http\Controllers\AdminController::class, 'Office'])->name('admin.office');
-        Route::match(['get', 'post'], 'position/{action?}', [App\Http\Controllers\AdminController::class, 'Position'])->name('admin.position');
         Route::match(['get', 'post'], 'education/{action?}', [App\Http\Controllers\AdminController::class, 'education'])->name('admin.education');
         Route::match(['get', 'post'], 'jobPosition/{action?}', [App\Http\Controllers\AdminController::class, 'jobPosition'])->name('admin.jobPosition');
         Route::match(['get', 'post'], 'businessField/{action?}', [App\Http\Controllers\AdminController::class, 'businessField'])->name('admin.businessField');
-        Route::match(['get', 'post'], 'bkk/{action?}', [App\Http\Controllers\AdminController::class, 'bkk'])->name('admin.bkk');
+        Route::match(['get', 'post'], 'bkks/{action?}', [App\Http\Controllers\AdminController::class, 'bkk'])->name('admin.bkk');
         Route::match(['get', 'post'], 'perusahaan/{action?}', [App\Http\Controllers\AdminController::class, 'perusahaan'])->name('admin.perusahaan');
     });
 
@@ -51,17 +50,21 @@ Route::middleware(['auth'])->group(function () {
         Route::match(['get', 'post'], '/ipk4/{action?}', [App\Http\Controllers\UserController::class, 'ipk4'])->name('user.ipk4');
         Route::match(['get', 'post'], '/ipk5/{action?}', [App\Http\Controllers\UserController::class, 'ipk5'])->name('user.ipk5');
         Route::match(['get', 'post'], '/ipk6/{action?}', [App\Http\Controllers\UserController::class, 'ipk6'])->name('user.ipk6');
-        // Route::post('/print/{set?}', [App\Http\Controllers\UserController::class, 'print'])->name('user.print');
+        Route::post('/print', [App\Http\Controllers\UserController::class, 'print'])->name('user.print');
     });
 
     Route::prefix('dinas')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DinasController::class, 'index'])->name('dinas');
-        Route::match(['get', 'post'], '/ipk1/{action?}', [App\Http\Controllers\DinasController::class, 'ipk1'])->name('dinas.ipk1');
-        Route::match(['get', 'post'], '/ipk2/{action?}', [App\Http\Controllers\DinasController::class, 'ipk2'])->name('dinas.ipk2');
-        Route::match(['get', 'post'], '/ipk3/{action?}', [App\Http\Controllers\DinasController::class, 'ipk3'])->name('dinas.ipk3');
-        Route::match(['get', 'post'], '/ipk4/{action?}', [App\Http\Controllers\DinasController::class, 'ipk4'])->name('dinas.ipk4');
-        Route::match(['get', 'post'], '/ipk5/{action?}', [App\Http\Controllers\DinasController::class, 'ipk5'])->name('dinas.ipk5');
-        Route::match(['get', 'post'], '/ipk6/{action?}', [App\Http\Controllers\DinasController::class, 'ipk6'])->name('dinas.ipk6');
+        Route::match(['get', 'put'], '/changePass/{id?}', [App\Http\Controllers\DinasController::class, 'changePassword'])->name('dinas.cpass');
+        Route::get('user/{id}', [App\Http\Controllers\DinasController::class, 'show'])->name('dinas.show');
+        Route::post('/cPhoto/{id}', [App\Http\Controllers\DinasController::class, 'ChangePhoto'])->name('dinas.cPhoto');
+        Route::put('/user/{id}', [App\Http\Controllers\DinasController::class, 'update'])->name('dinas.update');
+        Route::get('/ipk1', [App\Http\Controllers\DinasController::class, 'ipk1'])->name('dinas.ipk1');
+        Route::get('/ipk2', [App\Http\Controllers\DinasController::class, 'ipk2'])->name('dinas.ipk2');
+        Route::get('/ipk3', [App\Http\Controllers\DinasController::class, 'ipk3'])->name('dinas.ipk3');
+        Route::get('/ipk4', [App\Http\Controllers\DinasController::class, 'ipk4'])->name('dinas.ipk4');
+        Route::get('/ipk5', [App\Http\Controllers\DinasController::class, 'ipk5'])->name('dinas.ipk5');
+        Route::get('/ipk6', [App\Http\Controllers\DinasController::class, 'ipk6'])->name('dinas.ipk6');
     });
 
     Route::get('userRegion', [App\Http\Controllers\AdminController::class, 'userRegion']);
@@ -69,7 +72,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Route::get('test', [App\Http\Controllers\AdminController::class, 'userPosition']);
-Route::get('test', function () {
-    return view('dinas.home');
-});
+Route::get('test', [App\Http\Controllers\AdminController::class, 'test']);
 
