@@ -20,17 +20,31 @@ use Composer\Semver\VersionParser;
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 class InstalledVersions
 {
 private static $installed = array (
   'root' => 
   array (
+<<<<<<< HEAD
     'pretty_version' => '1.0.0+no-version-set',
     'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
     'reference' => NULL,
+=======
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
+    'aliases' => 
+    array (
+    ),
+    'reference' => 'bd9720c501b95a69cb093813e4a666ef8132ca92',
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -139,6 +153,7 @@ private static $installed = array (
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
     ),
+<<<<<<< HEAD
     'ezyang/htmlpurifier' => 
     array (
       'pretty_version' => 'v4.13.0',
@@ -148,6 +163,8 @@ private static $installed = array (
       ),
       'reference' => '08e27c97e4c6ed02f37c5b2b20488046c8d90d75',
     ),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     'facade/flare-client-php' => 
     array (
       'pretty_version' => '1.8.0',
@@ -491,12 +508,21 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
+<<<<<<< HEAD
       'pretty_version' => '1.0.0+no-version-set',
       'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
       'reference' => NULL,
+=======
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'bd9720c501b95a69cb093813e4a666ef8132ca92',
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     ),
     'laravel/sail' => 
     array (
@@ -552,6 +578,7 @@ private static $installed = array (
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
     ),
+<<<<<<< HEAD
     'maatwebsite/excel' => 
     array (
       'pretty_version' => '3.1.30',
@@ -588,6 +615,8 @@ private static $installed = array (
       ),
       'reference' => '361c0f545c3172ee26c3d596a0aa03f0cef65e6a',
     ),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     'maximebf/debugbar' => 
     array (
       'pretty_version' => 'v1.16.5',
@@ -635,6 +664,7 @@ private static $installed = array (
         0 => '1.10.2',
       ),
     ),
+<<<<<<< HEAD
     'myclabs/php-enum' => 
     array (
       'pretty_version' => '1.8.0',
@@ -644,6 +674,8 @@ private static $installed = array (
       ),
       'reference' => '46cf3d8498b095bd33727b13fd5707263af99421',
     ),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     'nesbot/carbon' => 
     array (
       'pretty_version' => '2.48.0',
@@ -743,6 +775,7 @@ private static $installed = array (
       ),
       'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
     ),
+<<<<<<< HEAD
     'phpoffice/phpspreadsheet' => 
     array (
       'pretty_version' => '1.16.0',
@@ -752,6 +785,8 @@ private static $installed = array (
       ),
       'reference' => '76d4323b85129d0c368149c831a07a3e258b2b50',
     ),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     'phpoption/phpoption' => 
     array (
       'pretty_version' => '1.7.5',
@@ -872,6 +907,7 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+<<<<<<< HEAD
     'psr/http-factory' => 
     array (
       'pretty_version' => '1.0.1',
@@ -881,6 +917,8 @@ private static $installed = array (
       ),
       'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
     ),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     'psr/http-message' => 
     array (
       'pretty_version' => '1.0.1',
@@ -1466,7 +1504,10 @@ foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 if (1 === \count($packages)) {
 return $packages[0];
 }
@@ -1662,6 +1703,10 @@ self::$installedByVendor = array();
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 private static function getInstalled()
 {
 if (null === self::$canGetVendors) {

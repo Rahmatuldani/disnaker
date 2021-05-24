@@ -20,6 +20,7 @@
     </li>
 
     <!-- Divider -->
+<<<<<<< HEAD
     <hr class="sidebar-divider">
 
     <!-- Heading -->
@@ -85,6 +86,9 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Business Field</span></a>
     </li>
+=======
+    
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
     <!-- Heading -->
     

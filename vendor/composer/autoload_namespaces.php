@@ -8,5 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+<<<<<<< HEAD
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 );

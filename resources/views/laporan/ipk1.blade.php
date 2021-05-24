@@ -7,6 +7,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">IPK III/1</h1>
 
+<<<<<<< HEAD
     @if (Auth::user()->role == 'provinsi')
         <a href="#" class="btn btn-info mb-4">Cetak Laporan</a>
     @else
@@ -14,6 +15,10 @@
         <a href="#" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addIpk">Tambah laporan baru</a>
         <a href="#" class="btn btn-info mb-4">Cetak Laporan</a>
     @endif
+=======
+    <a href="#" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addIpk">Tambah laporan baru</a>
+    <a href="#" class="btn btn-info mb-4">Cetak Laporan</a>
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
     <!-- Print Modal-->
     {{-- <div class="modal fade" id="printIpk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -31,6 +31,7 @@
     27 => 'Laravel\\Sail\\SailServiceProvider',
     28 => 'Laravel\\Tinker\\TinkerServiceProvider',
     29 => 'Laravel\\Ui\\UiServiceProvider',
+<<<<<<< HEAD
     30 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     31 => 'Carbon\\Laravel\\ServiceProvider',
     32 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
@@ -42,6 +43,17 @@
     38 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
     39 => 'Barryvdh\\DomPDF\\ServiceProvider',
     40 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+=======
+    30 => 'Carbon\\Laravel\\ServiceProvider',
+    31 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    32 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
+    33 => 'App\\Providers\\AppServiceProvider',
+    34 => 'App\\Providers\\AuthServiceProvider',
+    35 => 'App\\Providers\\EventServiceProvider',
+    36 => 'App\\Providers\\RouteServiceProvider',
+    37 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
+    38 => 'Barryvdh\\DomPDF\\ServiceProvider',
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
   ),
   'eager' => 
   array (
@@ -61,6 +73,7 @@
     13 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     14 => 'Fruitcake\\Cors\\CorsServiceProvider',
     15 => 'Laravel\\Ui\\UiServiceProvider',
+<<<<<<< HEAD
     16 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     17 => 'Carbon\\Laravel\\ServiceProvider',
     18 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
@@ -72,6 +85,17 @@
     24 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
     25 => 'Barryvdh\\DomPDF\\ServiceProvider',
     26 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+=======
+    16 => 'Carbon\\Laravel\\ServiceProvider',
+    17 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    18 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
+    19 => 'App\\Providers\\AppServiceProvider',
+    20 => 'App\\Providers\\AuthServiceProvider',
+    21 => 'App\\Providers\\EventServiceProvider',
+    22 => 'App\\Providers\\RouteServiceProvider',
+    23 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
+    24 => 'Barryvdh\\DomPDF\\ServiceProvider',
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
   ),
   'deferred' => 
   array (

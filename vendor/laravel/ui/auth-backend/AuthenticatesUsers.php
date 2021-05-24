@@ -66,7 +66,11 @@ trait AuthenticatesUsers
     protected function validateLogin(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
             $this->username() => 'required|string',
+=======
+            $this->username() => 'required|numeric',
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             'password' => 'required|string',
         ]);
     }
@@ -150,7 +154,11 @@ trait AuthenticatesUsers
      */
     public function username()
     {
+<<<<<<< HEAD
         return 'username';
+=======
+        return 'nip';
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     }
 
     /**

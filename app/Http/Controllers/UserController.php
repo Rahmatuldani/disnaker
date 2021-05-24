@@ -21,8 +21,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use PDF;
+<<<<<<< HEAD
 use Excel;
 use DB;
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
 class UserController extends Controller
 {
@@ -66,9 +69,15 @@ class UserController extends Controller
         $position = Position::where('position_name', $request['position_id'])->first();
 
         $user = new User;
+<<<<<<< HEAD
         $user->username = $request['username'];
         $user->name = $request['username'];
         $user->password = Hash::make($request['username']);
+=======
+        $user->nip = $request['nip'];
+        $user->name = $request['nip'];
+        $user->password = Hash::make($request['nip']);
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
         $user->photo = 'user.png';
         $user->role = $request['role'];
         $user->office_id = $office['office_id'];
@@ -219,8 +228,12 @@ class UserController extends Controller
 
             return redirect()->route('user.ipk1');
         } else {
+<<<<<<< HEAD
             $check = IPK1::where('ipk1_month', $request['month'])
                             ->where('town_id', $town['town_id'])->first();
+=======
+            $check = IPK1::where('ipk1_month', $request['month'])->first();
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
             if ($check == null) {
                 $each = IPK1Name::all();
@@ -481,6 +494,7 @@ class UserController extends Controller
             return redirect()->route('user.ipk6');
         }
     }
+<<<<<<< HEAD
 
     function importIPK1(Request $request)
     {
@@ -521,4 +535,6 @@ class UserController extends Controller
         }
      return back()->with('success', 'Excel Data Imported successfully.');
     }
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 }

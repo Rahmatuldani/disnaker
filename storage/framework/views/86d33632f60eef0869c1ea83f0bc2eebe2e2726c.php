@@ -20,6 +20,7 @@
     </li>
 
     <!-- Divider -->
+<<<<<<< HEAD
     <hr class="sidebar-divider">
 
     <!-- Heading -->
@@ -46,6 +47,15 @@
             </div>
         </div>
     </li>
+=======
+    
+
+    <!-- Heading -->
+    
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

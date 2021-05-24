@@ -22,15 +22,19 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+<<<<<<< HEAD
     <!-- Heading -->
     <div class="sidebar-heading">
         Users
     </div>
 
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.users') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
+<<<<<<< HEAD
             <span>Dinas</span></a>
     </li>
 
@@ -39,10 +43,14 @@
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>BKK</span></a>
+=======
+            <span>Users</span></a>
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     </li>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Perusahaan</span></a>
@@ -53,6 +61,8 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
         <a class="nav-link" href="{{ route('admin.office') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Office</span></a>

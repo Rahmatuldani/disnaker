@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "332581adcfb9ad2aebd0404380ccd654",
+=======
+    "content-hash": "516b1bd7c364148d0b20d4d51f611180",
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -561,6 +565,7 @@
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "ezyang/htmlpurifier",
             "version": "v4.13.0",
             "source": {
@@ -615,6 +620,8 @@
             "time": "2020-06-29T00:56:53+00:00"
         },
         {
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "fideloper/proxy",
             "version": "4.4.1",
             "source": {
@@ -1594,6 +1601,7 @@
             "time": "2021-01-18T20:58:21+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "maatwebsite/excel",
             "version": "3.1.30",
             "source": {
@@ -1916,6 +1924,8 @@
             "time": "2021-01-23T16:37:31+00:00"
         },
         {
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "monolog/monolog",
             "version": "2.2.0",
             "source": {
@@ -2012,6 +2022,7 @@
             "time": "2020-12-14T13:15:25+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "myclabs/php-enum",
             "version": "1.8.0",
             "source": {
@@ -2072,6 +2083,8 @@
             "time": "2021-02-15T16:11:48+00:00"
         },
         {
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "nesbot/carbon",
             "version": "2.48.0",
             "source": {
@@ -2371,6 +2384,7 @@
             "time": "2019-09-11T20:02:13+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "phpoffice/phpspreadsheet",
             "version": "1.16.0",
             "source": {
@@ -2472,6 +2486,8 @@
             "time": "2020-12-31T18:03:49+00:00"
         },
         {
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "phpoption/phpoption",
             "version": "1.7.5",
             "source": {
@@ -2691,6 +2707,7 @@
             "time": "2020-06-29T06:28:15+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "psr/http-factory",
             "version": "1.0.1",
             "source": {
@@ -2746,6 +2763,8 @@
             "time": "2019-04-30T12:38:16+00:00"
         },
         {
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {

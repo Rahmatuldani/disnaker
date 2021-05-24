@@ -22,7 +22,10 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo e(asset('css/sb-admin-2.min.css')); ?>" rel="stylesheet">
+<<<<<<< HEAD
     <?php echo $__env->yieldPushContent('css'); ?>
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
 </head>
 
@@ -104,7 +107,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?php echo e(asset('js/sb-admin-2.min.js')); ?>"></script>
+<<<<<<< HEAD
     <?php echo $__env->yieldPushContent('js'); ?>
+=======
+    <?php echo $__env->yieldPushContent('head'); ?>
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
 </body>
 

@@ -67,6 +67,7 @@
       0 => 'Laravel\\Ui\\UiServiceProvider',
     ),
   ),
+<<<<<<< HEAD
   'maatwebsite/excel' => 
   array (
     'providers' => 
@@ -78,6 +79,8 @@
       'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
     ),
   ),
+=======
+>>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
   'nesbot/carbon' => 
   array (
     'providers' => 
