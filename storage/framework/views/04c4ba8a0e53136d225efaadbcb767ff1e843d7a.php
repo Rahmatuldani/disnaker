@@ -52,24 +52,15 @@
                                     <form class="user" action="#" method="POST">
                                         <?php echo csrf_field(); ?>
                                         <div class="form-group">
-<<<<<<< HEAD
                                             <input type="text" class="form-control form-control-user <?php $__errorArgs = ['username'];
-=======
-                                            <input type="text" class="form-control form-control-user <?php $__errorArgs = ['nip'];
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-<<<<<<< HEAD
 unset($__errorArgs, $__bag); ?>" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter Username">
                                             <?php $__errorArgs = ['username'];
-=======
-unset($__errorArgs, $__bag); ?>" id="nip" name="nip" aria-describedby="emailHelp" placeholder="Enter NIP">
-                                            <?php $__errorArgs = ['nip'];
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

@@ -176,10 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Sarfraznawaz2005\Loading\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-<<<<<<< HEAD
         Maatwebsite\Excel\ExcelServiceProvider::class,
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 
     ],
 
@@ -211,10 +208,7 @@ return [
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
-<<<<<<< HEAD
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,

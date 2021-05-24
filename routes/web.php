@@ -27,10 +27,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'admin' => AdminController::class,
         'user' => UserController::class,
-<<<<<<< HEAD
-=======
-        'dinas' => DinasController::class,
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     ]);
 
     Route::prefix('admins')->group(function () {
@@ -42,11 +38,8 @@ Route::middleware(['auth'])->group(function () {
         Route::match(['get', 'post'], 'education/{action?}', [App\Http\Controllers\AdminController::class, 'education'])->name('admin.education');
         Route::match(['get', 'post'], 'jobPosition/{action?}', [App\Http\Controllers\AdminController::class, 'jobPosition'])->name('admin.jobPosition');
         Route::match(['get', 'post'], 'businessField/{action?}', [App\Http\Controllers\AdminController::class, 'businessField'])->name('admin.businessField');
-<<<<<<< HEAD
         Route::match(['get', 'post'], 'bkk/{action?}', [App\Http\Controllers\AdminController::class, 'bkk'])->name('admin.bkk');
         Route::match(['get', 'post'], 'perusahaan/{action?}', [App\Http\Controllers\AdminController::class, 'perusahaan'])->name('admin.perusahaan');
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     });
 
     Route::prefix('users')->group(function () {
@@ -61,7 +54,6 @@ Route::middleware(['auth'])->group(function () {
         // Route::post('/print/{set?}', [App\Http\Controllers\UserController::class, 'print'])->name('user.print');
     });
 
-<<<<<<< HEAD
     Route::prefix('dinas')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DinasController::class, 'index'])->name('dinas');
         Route::match(['get', 'post'], '/ipk1/{action?}', [App\Http\Controllers\DinasController::class, 'ipk1'])->name('dinas.ipk1');
@@ -70,10 +62,6 @@ Route::middleware(['auth'])->group(function () {
         Route::match(['get', 'post'], '/ipk4/{action?}', [App\Http\Controllers\DinasController::class, 'ipk4'])->name('dinas.ipk4');
         Route::match(['get', 'post'], '/ipk5/{action?}', [App\Http\Controllers\DinasController::class, 'ipk5'])->name('dinas.ipk5');
         Route::match(['get', 'post'], '/ipk6/{action?}', [App\Http\Controllers\DinasController::class, 'ipk6'])->name('dinas.ipk6');
-=======
-    Route::prefix('disnaker')->group(function () {
-
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     });
 
     Route::get('userRegion', [App\Http\Controllers\AdminController::class, 'userRegion']);
@@ -81,10 +69,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Route::get('test', [App\Http\Controllers\AdminController::class, 'userPosition']);
-<<<<<<< HEAD
 Route::get('test', function () {
     return view('dinas.home');
 });
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 

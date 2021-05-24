@@ -735,7 +735,6 @@
             "install-path": "../egulias/email-validator"
         },
         {
-<<<<<<< HEAD
             "name": "ezyang/htmlpurifier",
             "version": "v4.13.0",
             "version_normalized": "4.13.0.0",
@@ -793,8 +792,6 @@
             "install-path": "../ezyang/htmlpurifier"
         },
         {
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "facade/flare-client-php",
             "version": "1.8.0",
             "version_normalized": "1.8.0.0",
@@ -2273,7 +2270,6 @@
             "install-path": "../league/mime-type-detection"
         },
         {
-<<<<<<< HEAD
             "name": "maatwebsite/excel",
             "version": "3.1.30",
             "version_normalized": "3.1.30.0",
@@ -2608,8 +2604,6 @@
             "install-path": "../markbaker/matrix"
         },
         {
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "maximebf/debugbar",
             "version": "v1.16.5",
             "version_normalized": "1.16.5.0",
@@ -2913,7 +2907,6 @@
             "install-path": "../myclabs/deep-copy"
         },
         {
-<<<<<<< HEAD
             "name": "myclabs/php-enum",
             "version": "1.8.0",
             "version_normalized": "1.8.0.0",
@@ -2977,8 +2970,6 @@
             "install-path": "../myclabs/php-enum"
         },
         {
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "nesbot/carbon",
             "version": "2.48.0",
             "version_normalized": "2.48.0.0",
@@ -3668,7 +3659,6 @@
             "install-path": "../phpdocumentor/type-resolver"
         },
         {
-<<<<<<< HEAD
             "name": "phpoffice/phpspreadsheet",
             "version": "1.16.0",
             "version_normalized": "1.16.0.0",
@@ -3773,8 +3763,6 @@
             "install-path": "../phpoffice/phpspreadsheet"
         },
         {
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "phpoption/phpoption",
             "version": "1.7.5",
             "version_normalized": "1.7.5.0",
@@ -4515,7 +4503,6 @@
             "install-path": "../psr/http-client"
         },
         {
-<<<<<<< HEAD
             "name": "psr/http-factory",
             "version": "1.0.1",
             "version_normalized": "1.0.1.0",
@@ -4574,8 +4561,6 @@
             "install-path": "../psr/http-factory"
         },
         {
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
             "name": "psr/http-message",
             "version": "1.0.1",
             "version_normalized": "1.0.1.0",

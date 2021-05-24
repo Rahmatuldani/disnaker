@@ -64,7 +64,6 @@ return [
             ]) : [],
         ],
 
-<<<<<<< HEAD
         'mysql2' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
@@ -86,8 +85,6 @@ return [
             ]) : [],
         ],
 
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

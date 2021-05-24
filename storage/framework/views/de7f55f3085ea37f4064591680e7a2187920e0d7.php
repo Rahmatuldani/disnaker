@@ -136,11 +136,7 @@
                 <?php if(Auth::user()->photo == NULL): ?>
                     <img class="img-profile rounded-circle" src="<?php echo e(asset('img/icons/user.png')); ?>" alt="">
                 <?php else: ?>
-<<<<<<< HEAD
                     <img class="img-profile rounded-circle" src="<?php echo e(asset('images/'.Auth::user()->photo)); ?>" alt="">
-=======
-                    <img class="img-profile rounded-circle" src="<?php echo e(asset('storage/images/'.Auth::user()->photo)); ?>" alt="">
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
                 <?php endif; ?>
             </a>
             <!-- Dropdown - User Information -->
@@ -150,11 +146,7 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-<<<<<<< HEAD
                 <a class="dropdown-item" href="<?php echo e(route('user.cpass')); ?>">
-=======
-                <a class="dropdown-item" href="#">
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Change Password
                 </a>

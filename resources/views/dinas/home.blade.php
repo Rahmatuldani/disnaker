@@ -17,7 +17,3 @@
 
     <script src="{{ asset('js/demo/chart-bar-demo.js') }}"></script>
 @endpush
-<<<<<<< HEAD
-
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa

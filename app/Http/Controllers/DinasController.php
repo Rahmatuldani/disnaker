@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Models\IPK1;
 use App\Models\IPK1Name;
 use App\Models\IPK2;
@@ -10,26 +9,15 @@ use App\Models\IPK3;
 use App\Models\IPK4;
 use App\Models\IPK5;
 use App\Models\IPK6;
-=======
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 use Illuminate\Http\Request;
 
 class DinasController extends Controller
 {
-<<<<<<< HEAD
-=======
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
     public function index()
     {
         return view('dinas.home');
     }
 
-<<<<<<< HEAD
     public function ipk1(Request $request, $action = null)
     {
         if ($action == null) {
@@ -319,71 +307,4 @@ class DinasController extends Controller
     //         return redirect()->route('user.ipk6');
     //     }
     // }
-=======
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
 }

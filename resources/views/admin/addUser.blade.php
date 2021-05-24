@@ -52,14 +52,10 @@
                                 <td class="row justify-content-center m-0">
                                     <img height="100" src="{{ asset('images/'.$u['photo']) }}" alt="">
                                 </td>
-<<<<<<< HEAD
                                 <td>
                                     NIP : {{ $u['nip'] }} <br>
                                     Username : {{ $u['username'] }}
                                 </td>
-=======
-                                <td>{{ $u['nip'] }}</td>
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
                                 <td>{{ $u['name'] }}</td>
                                 <td>{{ $u['address'] }}</td>
                                 <td>{{ $u['phone'] }}</td>
@@ -115,15 +111,9 @@
                     @csrf
                     <div class="modal-body">
                         <div class="row m-3">
-<<<<<<< HEAD
                             <label for="username" class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm ml-3">
                                 <input type="text" name="username" id="username" class="form-control m-0" required>
-=======
-                            <label for="nip" class="col-sm-3 col-form-label">NIP</label>
-                            <div class="col-sm ml-3">
-                                <input type="text" name="nip" id="nip" class="form-control m-0" required>
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
                             </div>
                         </div>
                         <div class="row m-3">
@@ -154,13 +144,8 @@
                                 <input list="roleList" name="role" id="role" class="form-control" required>
                                 <datalist id="roleList">
                                     <option value="admin"></option>
-<<<<<<< HEAD
                                     <option value="provinsi"></option>
                                     <option value="kabupaten/kota"></option>
-=======
-                                    <option value="dinas"></option>
-                                    <option value="sekolah"></option>
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
                                 </datalist>
                             </div>
                         </div>

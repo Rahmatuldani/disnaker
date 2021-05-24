@@ -51,13 +51,8 @@
                                     <form class="user" action="#" method="POST">
                                         @csrf
                                         <div class="form-group">
-<<<<<<< HEAD
                                             <input type="text" class="form-control form-control-user @error('username') is-invalid @enderror" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter Username">
                                             @error('username')
-=======
-                                            <input type="text" class="form-control form-control-user @error('nip') is-invalid @enderror" id="nip" name="nip" aria-describedby="emailHelp" placeholder="Enter NIP">
-                                            @error('nip')
->>>>>>> 49e5e24b41baa157729517b1b2e813c96087f2fa
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
